@@ -7,4 +7,10 @@
 	<insert id="doCreate" parameterType="News" keyProperty="nid" useGeneratedKeys="true">
 		INSERT INTO news(title,pubdate) VALUES (#{title},#{pubdate})
 	</insert> 
+	<update id="doEdit" parameterType="News">
+		UPDATE news SET title=#{title},pubdate=#{pubdate} WHERE nid=#{nid}
+	</update>
+	<delete id="doRemove" parameterType="Long">	<!-- 单个参数 -->
+		DELETE FROM news WHERE nid=#{id}
+	</delete>
 </mapper>

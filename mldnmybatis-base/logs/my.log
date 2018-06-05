@@ -1,3 +1,12 @@
 2018-06-05 17:13:57,349 DEBUG [cn.mldn.mapping.NewsNS.doCreate] - ==>  Preparing: INSERT INTO news(title,pubdate) VALUES (?,?) 
 2018-06-05 17:13:57,396 DEBUG [cn.mldn.mapping.NewsNS.doCreate] - ==> Parameters: 今天是个好天气。(String), 2018-06-05 17:13:56.72(Timestamp)
 2018-06-05 17:13:57,397 DEBUG [cn.mldn.mapping.NewsNS.doCreate] - <==    Updates: 1
+2018-06-05 17:19:25,437 DEBUG [cn.mldn.mapping.NewsNS.doCreate] - ==>  Preparing: INSERT INTO news(title,pubdate) VALUES (?,?) 
+2018-06-05 17:19:25,477 DEBUG [cn.mldn.mapping.NewsNS.doCreate] - ==> Parameters: 今天是个好天气。(String), 2018-06-05 17:19:24.798(Timestamp)
+2018-06-05 17:19:25,478 DEBUG [cn.mldn.mapping.NewsNS.doCreate] - <==    Updates: 1
+2018-06-05 17:23:34,083 DEBUG [cn.mldn.mapping.NewsNS.doEdit] - ==>  Preparing: UPDATE news SET title=?,pubdate=? WHERE nid=? 
+2018-06-05 17:23:34,125 DEBUG [cn.mldn.mapping.NewsNS.doEdit] - ==> Parameters: 马上下课了，高兴吗？(String), 2018-06-05 17:23:33.448(Timestamp), 6(Long)
+2018-06-05 17:23:34,126 DEBUG [cn.mldn.mapping.NewsNS.doEdit] - <==    Updates: 1
+2018-06-05 17:23:49,132 DEBUG [cn.mldn.mapping.NewsNS.doRemove] - ==>  Preparing: DELETE FROM news WHERE nid=? 
+2018-06-05 17:23:49,164 DEBUG [cn.mldn.mapping.NewsNS.doRemove] - ==> Parameters: 9(Long)
+2018-06-05 17:23:49,165 DEBUG [cn.mldn.mapping.NewsNS.doRemove] - <==    Updates: 1
