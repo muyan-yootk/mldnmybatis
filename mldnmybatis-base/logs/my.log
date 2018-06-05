@@ -1,0 +1,3 @@
+2018-06-05 17:13:57,349 DEBUG [cn.mldn.mapping.NewsNS.doCreate] - ==>  Preparing: INSERT INTO news(title,pubdate) VALUES (?,?) 
+2018-06-05 17:13:57,396 DEBUG [cn.mldn.mapping.NewsNS.doCreate] - ==> Parameters: 今天是个好天气。(String), 2018-06-05 17:13:56.72(Timestamp)
+2018-06-05 17:13:57,397 DEBUG [cn.mldn.mapping.NewsNS.doCreate] - <==    Updates: 1

@@ -3,6 +3,9 @@
     PUBLIC "-//mybatis.org//DTD Config 3.0//EN"   
     "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+	<typeAliases>
+		<package name="cn.mldn.vo"/>
+	</typeAliases>
 	<environments default="development">		<!-- 配置数据源的相关信息 --> 
 		<environment id="development">
 			<transactionManager type="jdbc" />	<!-- 使用JDBC方式管理 -->
