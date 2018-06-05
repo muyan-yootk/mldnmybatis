@@ -26,7 +26,7 @@
 		<activemq.version>5.15.4</activemq.version>
 		<jms.version>1.1</jms.version>
 		<cxf.version>3.2.4</cxf.version>
-		<mysql.version>5.0.8</mysql.version>
+		<mysql.version>5.1.25</mysql.version>
 		<c3p0.version>0.9.5.2</c3p0.version>
 		<log4j.version>2.11.0</log4j.version>
 		<slf4j.version>1.7.25</slf4j.version>

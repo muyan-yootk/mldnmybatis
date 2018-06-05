@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 设置命名空间，可以与不同表的同类型操作进行区分，使用时以“空间名称.id”的方式调用 -->
+<mapper namespace="cn.mldn.mapping.NewsNS"> 
+	<!-- 定义增加数据的操作配置，同时指定参数类型 -->
+	<insert id="doCreate" parameterType="cn.mldn.vo.News" keyProperty="nid" useGeneratedKeys="true">
+		INSERT INTO news(title,pubdate) VALUES (#{title},#{pubdate})
+	</insert> 
+</mapper>
