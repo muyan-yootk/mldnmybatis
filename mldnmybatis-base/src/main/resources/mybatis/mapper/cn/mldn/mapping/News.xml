@@ -3,13 +3,34 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- 设置命名空间，可以与不同表的同类型操作进行区分，使用时以“空间名称.id”的方式调用 -->
 <mapper namespace="cn.mldn.mapping.NewsNS">
-	<cache eviction="FIFO" flushInterval="200" readOnly="true" type="cn.mldn.util.cache.MyBatisRedisCache"/>
+	<!-- <cache eviction="FIFO" flushInterval="200" readOnly="true" type="cn.mldn.util.cache.MyBatisRedisCache"/> -->
 	<select id="getAllCount" resultType="Long" parameterType="map">
 		SELECT COUNT(*) FROM news WHERE ${column} LIKE #{keyWord} ;
 	</select>  
 	<select id="findSplit" resultType="News" parameterType="map">
-		SELECT nid,title,pubdate FROM news WHERE ${column} LIKE #{keyWord}  LIMIT #{start} , #{lineSize} ;
+		SELECT nid,title,pubdate FROM news 
+		<where>
+			<if test="column != null and keyWord !=null and column != &quot;&quot; and keyWord != &quot;&quot;">
+				${column} LIKE #{keyWord}  
+			</if>		
+		</where>
+		LIMIT #{start} , #{lineSize} ;
 	</select>
+	
+	<update id="doEdit" parameterType="News">
+		UPDATE news
+		<set>
+			<if test="title != null and title != &quot;&quot;">
+				title=#{title} ,
+			</if>
+			<if test="pubdate != null">
+				pubdate=#{pubdate} ,
+			</if>
+		</set> 
+		<where>
+			nid=#{nid}
+		</where>
+	</update>
 	
 	<!-- 定义一个查询全部数据的操作方法，但是为其设置了一个参数，&quot;描述的是“"” -->
 	<select id="findAll" resultType="News" parameterType="News">
@@ -21,10 +42,20 @@
 	
 	<select id="findAllMap" resultType="News" parameterType="Map">
 		SELECT nid,title,pubdate FROM news
-		<if test="title != null and title != &quot;&quot;">
-			WHERE title=#{title}
-		</if> 
-	</select> 
+		<where>
+			<choose>
+				<when test="nid != null and title != null and title != &quot;&quot;">
+					nid=#{nid} AND title=#{title}
+				</when>
+				<when test="nid != null">
+					nid=#{nid}
+				</when> 
+				<otherwise>
+					title=#{title}
+				</otherwise> 
+			</choose>
+		</where>
+	</select>  
 	
 	<select id="findById" resultType="News" parameterType="long">
 		SELECT nid,title,pubdate FROM news WHERE nid=#{id} ;
@@ -33,9 +64,7 @@
 	<insert id="doCreate" parameterType="News" keyProperty="nid" useGeneratedKeys="true">
 		INSERT INTO news(title,pubdate) VALUES (#{title},#{pubdate})
 	</insert> 
-	<update id="doEdit" parameterType="News">
-		UPDATE news SET title=#{title},pubdate=#{pubdate} WHERE nid=#{nid}
-	</update>
+
 	<delete id="doRemove" parameterType="Long">	<!-- 单个参数 -->
 		DELETE FROM news WHERE nid=#{id}
 	</delete>
