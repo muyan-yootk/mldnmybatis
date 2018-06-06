@@ -10,9 +10,22 @@
 	<select id="findSplit" resultType="News" parameterType="map">
 		SELECT nid,title,pubdate FROM news WHERE ${column} LIKE #{keyWord}  LIMIT #{start} , #{lineSize} ;
 	</select>
-	<select id="findAll" resultType="News">
-		SELECT nid,title,pubdate FROM news ;
-	</select>
+	
+	<!-- 定义一个查询全部数据的操作方法，但是为其设置了一个参数，&quot;描述的是“"” -->
+	<select id="findAll" resultType="News" parameterType="News">
+		SELECT nid,title,pubdate FROM news
+		<if test="title != null and title != &quot;&quot;">
+			WHERE title=#{title}
+		</if>
+	</select> 
+	
+	<select id="findAllMap" resultType="News" parameterType="Map">
+		SELECT nid,title,pubdate FROM news
+		<if test="title != null and title != &quot;&quot;">
+			WHERE title=#{title}
+		</if> 
+	</select> 
+	
 	<select id="findById" resultType="News" parameterType="long">
 		SELECT nid,title,pubdate FROM news WHERE nid=#{id} ;
 	</select> 
