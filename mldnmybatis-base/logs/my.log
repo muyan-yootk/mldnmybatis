@@ -53,3 +53,74 @@
 2018-06-06 09:05:27,494 TRACE [cn.mldn.mapping.NewsNS.getAllCount] - <==    Columns: COUNT(*)
 2018-06-06 09:05:27,494 TRACE [cn.mldn.mapping.NewsNS.getAllCount] - <==        Row: 10
 2018-06-06 09:05:27,495 DEBUG [cn.mldn.mapping.NewsNS.getAllCount] - <==      Total: 1
+2018-06-06 09:22:30,316 DEBUG [cn.mldn.mapping.NewsNS.findById] - ==>  Preparing: SELECT nid,title,pubdate FROM news WHERE nid=? ; 
+2018-06-06 09:22:30,356 DEBUG [cn.mldn.mapping.NewsNS.findById] - ==> Parameters: 8(Long)
+2018-06-06 09:22:30,371 TRACE [cn.mldn.mapping.NewsNS.findById] - <==    Columns: nid, title, pubdate
+2018-06-06 09:22:30,376 TRACE [cn.mldn.mapping.NewsNS.findById] - <==        Row: 8, 今天是个好天气。, 2018-06-05 16:47:02.0
+2018-06-06 09:22:30,378 DEBUG [cn.mldn.mapping.NewsNS.findById] - <==      Total: 1
+2018-06-06 09:23:56,266 DEBUG [cn.mldn.mapping.NewsNS.findById] - ==>  Preparing: SELECT nid,title,pubdate FROM news WHERE nid=? ; 
+2018-06-06 09:23:56,300 DEBUG [cn.mldn.mapping.NewsNS.findById] - ==> Parameters: 8(Long)
+2018-06-06 09:23:56,314 TRACE [cn.mldn.mapping.NewsNS.findById] - <==    Columns: nid, title, pubdate
+2018-06-06 09:23:56,319 TRACE [cn.mldn.mapping.NewsNS.findById] - <==        Row: 8, 今天是个好天气。, 2018-06-05 16:47:02.0
+2018-06-06 09:23:56,321 DEBUG [cn.mldn.mapping.NewsNS.findById] - <==      Total: 1
+2018-06-06 09:26:58,135 DEBUG [cn.mldn.mapping.NewsNS.findById] - ==>  Preparing: SELECT nid,title,pubdate FROM news WHERE nid=? ; 
+2018-06-06 09:26:58,174 DEBUG [cn.mldn.mapping.NewsNS.findById] - ==> Parameters: 8(Long)
+2018-06-06 09:26:58,187 TRACE [cn.mldn.mapping.NewsNS.findById] - <==    Columns: nid, title, pubdate
+2018-06-06 09:26:58,193 TRACE [cn.mldn.mapping.NewsNS.findById] - <==        Row: 8, 今天是个好天气。, 2018-06-05 16:47:02.0
+2018-06-06 09:26:58,195 DEBUG [cn.mldn.mapping.NewsNS.findById] - <==      Total: 1
+2018-06-06 09:29:11,079 DEBUG [cn.mldn.mapping.NewsNS.findById] - ==>  Preparing: SELECT nid,title,pubdate FROM news WHERE nid=? ; 
+2018-06-06 09:29:11,110 DEBUG [cn.mldn.mapping.NewsNS.findById] - ==> Parameters: 8(Long)
+2018-06-06 09:29:11,123 TRACE [cn.mldn.mapping.NewsNS.findById] - <==    Columns: nid, title, pubdate
+2018-06-06 09:29:11,129 TRACE [cn.mldn.mapping.NewsNS.findById] - <==        Row: 8, 今天是个好天气。, 2018-06-05 16:47:02.0
+2018-06-06 09:29:11,130 DEBUG [cn.mldn.mapping.NewsNS.findById] - <==      Total: 1
+2018-06-06 09:29:11,134 DEBUG [cn.mldn.mapping.NewsNS.findById] - ==>  Preparing: SELECT nid,title,pubdate FROM news WHERE nid=? ; 
+2018-06-06 09:29:11,134 DEBUG [cn.mldn.mapping.NewsNS.findById] - ==> Parameters: 8(Long)
+2018-06-06 09:29:11,135 TRACE [cn.mldn.mapping.NewsNS.findById] - <==    Columns: nid, title, pubdate
+2018-06-06 09:29:11,135 TRACE [cn.mldn.mapping.NewsNS.findById] - <==        Row: 8, 今天是个好天气。, 2018-06-05 16:47:02.0
+2018-06-06 09:29:11,136 DEBUG [cn.mldn.mapping.NewsNS.findById] - <==      Total: 1
+2018-06-06 09:34:38,867 DEBUG [cn.mldn.mapping.NewsNS.findById] - ==>  Preparing: SELECT nid,title,pubdate FROM news WHERE nid=? ; 
+2018-06-06 09:34:38,900 DEBUG [cn.mldn.mapping.NewsNS.findById] - ==> Parameters: 8(Long)
+2018-06-06 09:34:38,914 TRACE [cn.mldn.mapping.NewsNS.findById] - <==    Columns: nid, title, pubdate
+2018-06-06 09:34:38,919 TRACE [cn.mldn.mapping.NewsNS.findById] - <==        Row: 8, 今天是个好天气。, 2018-06-05 16:47:02.0
+2018-06-06 09:34:38,921 DEBUG [cn.mldn.mapping.NewsNS.findById] - <==      Total: 1
+2018-06-06 09:34:38,934 DEBUG [cn.mldn.mapping.NewsNS.findById] - ==>  Preparing: SELECT nid,title,pubdate FROM news WHERE nid=? ; 
+2018-06-06 09:34:38,934 DEBUG [cn.mldn.mapping.NewsNS.findById] - ==> Parameters: 8(Long)
+2018-06-06 09:34:38,934 TRACE [cn.mldn.mapping.NewsNS.findById] - <==    Columns: nid, title, pubdate
+2018-06-06 09:34:38,935 TRACE [cn.mldn.mapping.NewsNS.findById] - <==        Row: 8, 今天是个好天气。, 2018-06-05 16:47:02.0
+2018-06-06 09:34:38,935 DEBUG [cn.mldn.mapping.NewsNS.findById] - <==      Total: 1
+2018-06-06 09:38:43,161 DEBUG [cn.mldn.mapping.NewsNS] - Cache Hit Ratio [cn.mldn.mapping.NewsNS]: 0.0
+2018-06-06 09:38:43,432 DEBUG [cn.mldn.mapping.NewsNS.findById] - ==>  Preparing: SELECT nid,title,pubdate FROM news WHERE nid=? ; 
+2018-06-06 09:38:43,466 DEBUG [cn.mldn.mapping.NewsNS.findById] - ==> Parameters: 8(Long)
+2018-06-06 09:38:43,480 TRACE [cn.mldn.mapping.NewsNS.findById] - <==    Columns: nid, title, pubdate
+2018-06-06 09:38:43,486 TRACE [cn.mldn.mapping.NewsNS.findById] - <==        Row: 8, 今天是个好天气。, 2018-06-05 16:47:02.0
+2018-06-06 09:38:43,487 DEBUG [cn.mldn.mapping.NewsNS.findById] - <==      Total: 1
+2018-06-06 09:38:43,491 DEBUG [cn.mldn.mapping.NewsNS] - Cache Hit Ratio [cn.mldn.mapping.NewsNS]: 0.0
+2018-06-06 09:38:43,502 DEBUG [cn.mldn.mapping.NewsNS.findById] - ==>  Preparing: SELECT nid,title,pubdate FROM news WHERE nid=? ; 
+2018-06-06 09:38:43,502 DEBUG [cn.mldn.mapping.NewsNS.findById] - ==> Parameters: 8(Long)
+2018-06-06 09:38:43,503 TRACE [cn.mldn.mapping.NewsNS.findById] - <==    Columns: nid, title, pubdate
+2018-06-06 09:38:43,503 TRACE [cn.mldn.mapping.NewsNS.findById] - <==        Row: 8, 今天是个好天气。, 2018-06-05 16:47:02.0
+2018-06-06 09:38:43,503 DEBUG [cn.mldn.mapping.NewsNS.findById] - <==      Total: 1
+2018-06-06 09:39:55,050 DEBUG [cn.mldn.mapping.NewsNS] - Cache Hit Ratio [cn.mldn.mapping.NewsNS]: 0.0
+2018-06-06 09:39:55,314 DEBUG [cn.mldn.mapping.NewsNS.findById] - ==>  Preparing: SELECT nid,title,pubdate FROM news WHERE nid=? ; 
+2018-06-06 09:39:55,346 DEBUG [cn.mldn.mapping.NewsNS.findById] - ==> Parameters: 8(Long)
+2018-06-06 09:39:55,360 TRACE [cn.mldn.mapping.NewsNS.findById] - <==    Columns: nid, title, pubdate
+2018-06-06 09:39:55,365 TRACE [cn.mldn.mapping.NewsNS.findById] - <==        Row: 8, 今天是个好天气。, 2018-06-05 16:47:02.0
+2018-06-06 09:39:55,367 DEBUG [cn.mldn.mapping.NewsNS.findById] - <==      Total: 1
+2018-06-06 09:39:55,377 DEBUG [cn.mldn.mapping.NewsNS] - Cache Hit Ratio [cn.mldn.mapping.NewsNS]: 0.5
+2018-06-06 09:43:02,996 DEBUG [cn.mldn.mapping.NewsNS.findById] - ==>  Preparing: SELECT nid,title,pubdate FROM news WHERE nid=? ; 
+2018-06-06 09:43:03,032 DEBUG [cn.mldn.mapping.NewsNS.findById] - ==> Parameters: 8(Long)
+2018-06-06 09:43:03,047 TRACE [cn.mldn.mapping.NewsNS.findById] - <==    Columns: nid, title, pubdate
+2018-06-06 09:43:03,053 TRACE [cn.mldn.mapping.NewsNS.findById] - <==        Row: 8, 今天是个好天气。, 2018-06-05 16:47:02.0
+2018-06-06 09:43:03,054 DEBUG [cn.mldn.mapping.NewsNS.findById] - <==      Total: 1
+2018-06-06 09:43:03,059 DEBUG [cn.mldn.mapping.NewsNS.findById] - ==>  Preparing: SELECT nid,title,pubdate FROM news WHERE nid=? ; 
+2018-06-06 09:43:03,059 DEBUG [cn.mldn.mapping.NewsNS.findById] - ==> Parameters: 8(Long)
+2018-06-06 09:43:03,060 TRACE [cn.mldn.mapping.NewsNS.findById] - <==    Columns: nid, title, pubdate
+2018-06-06 09:43:03,060 TRACE [cn.mldn.mapping.NewsNS.findById] - <==        Row: 8, 今天是个好天气。, 2018-06-05 16:47:02.0
+2018-06-06 09:43:03,061 DEBUG [cn.mldn.mapping.NewsNS.findById] - <==      Total: 1
+2018-06-06 09:50:15,087 DEBUG [cn.mldn.mapping.NewsNS] - Cache Hit Ratio [cn.mldn.mapping.NewsNS]: 0.0
+2018-06-06 09:50:15,350 DEBUG [cn.mldn.mapping.NewsNS.findById] - ==>  Preparing: SELECT nid,title,pubdate FROM news WHERE nid=? ; 
+2018-06-06 09:50:15,385 DEBUG [cn.mldn.mapping.NewsNS.findById] - ==> Parameters: 8(Long)
+2018-06-06 09:50:15,398 TRACE [cn.mldn.mapping.NewsNS.findById] - <==    Columns: nid, title, pubdate
+2018-06-06 09:50:15,404 TRACE [cn.mldn.mapping.NewsNS.findById] - <==        Row: 8, 今天是个好天气。, 2018-06-05 16:47:02.0
+2018-06-06 09:50:15,406 DEBUG [cn.mldn.mapping.NewsNS.findById] - <==      Total: 1
+2018-06-06 09:50:15,411 DEBUG [cn.mldn.mapping.NewsNS] - Cache Hit Ratio [cn.mldn.mapping.NewsNS]: 0.5

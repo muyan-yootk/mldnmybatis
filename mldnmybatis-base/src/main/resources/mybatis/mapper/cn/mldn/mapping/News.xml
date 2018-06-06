@@ -3,6 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- 设置命名空间，可以与不同表的同类型操作进行区分，使用时以“空间名称.id”的方式调用 -->
 <mapper namespace="cn.mldn.mapping.NewsNS">
+	<cache eviction="FIFO" flushInterval="200" readOnly="true"/>
 	<select id="getAllCount" resultType="Long" parameterType="map">
 		SELECT COUNT(*) FROM news WHERE ${column} LIKE #{keyWord} ;
 	</select>  
@@ -14,7 +15,7 @@
 	</select>
 	<select id="findById" resultType="News" parameterType="long">
 		SELECT nid,title,pubdate FROM news WHERE nid=#{id} ;
-	</select>
+	</select> 
 	<!-- 定义增加数据的操作配置，同时指定参数类型 --> 
 	<insert id="doCreate" parameterType="News" keyProperty="nid" useGeneratedKeys="true">
 		INSERT INTO news(title,pubdate) VALUES (#{title},#{pubdate})
