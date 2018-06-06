@@ -3,7 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- 设置命名空间，可以与不同表的同类型操作进行区分，使用时以“空间名称.id”的方式调用 -->
 <mapper namespace="cn.mldn.mapping.NewsNS">
-	<cache eviction="FIFO" flushInterval="200" readOnly="true"/>
+	<cache eviction="FIFO" flushInterval="200" readOnly="true" type="cn.mldn.util.cache.MyBatisRedisCache"/>
 	<select id="getAllCount" resultType="Long" parameterType="map">
 		SELECT COUNT(*) FROM news WHERE ${column} LIKE #{keyWord} ;
 	</select>  
