@@ -1,6 +1,9 @@
 package cn.mldn.mldnmybatis.base;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.junit.Test;
 
@@ -8,6 +11,49 @@ import cn.mldn.util.MyBatisSessionFactory;
 import cn.mldn.vo.News;
 
 public class TestNews {
+	@Test
+	public void testSelectCount() throws Exception {
+		String column = "title" ;
+		String keyWord = "今天" ;
+		Map<String,Object> map = new HashMap<String,Object>() ;
+		map.put("column", column) ;
+		map.put("keyWord", "%" + keyWord + "%");
+		Long count = MyBatisSessionFactory.getSession().selectOne(
+				"cn.mldn.mapping.NewsNS.getAllCount",map); 
+		System.out.println(count);   
+		MyBatisSessionFactory.close();
+	}   
+	@Test
+	public void testSelectSplit() throws Exception {
+		String column = "title" ;
+		String keyWord = "今天" ;
+		long currentPage = 1 ;
+		int lineSize = 5 ;
+		Map<String,Object> map = new HashMap<String,Object>() ;
+		map.put("column", column) ;
+		map.put("keyWord", "%" + keyWord + "%");
+		map.put("start", (currentPage - 1) * lineSize) ;
+		map.put("lineSize", lineSize) ;
+		List<News> all = MyBatisSessionFactory.getSession().selectList(
+				"cn.mldn.mapping.NewsNS.findSplit",map); 
+		System.out.println(all);  
+		MyBatisSessionFactory.close();
+	}   
+	@Test
+	public void testSelectAll() throws Exception {
+		List<News> all = MyBatisSessionFactory.getSession().selectList(
+				"cn.mldn.mapping.NewsNS.findAll"); 
+		System.out.println(all);  
+		MyBatisSessionFactory.close();
+	}  
+	@Test
+	public void testSelectOne() throws Exception {
+		News news = MyBatisSessionFactory.getSession().selectOne(
+				"cn.mldn.mapping.NewsNS.findById", 8L); 
+		System.out.println(news); 
+		MyBatisSessionFactory.close();
+	} 
+	
 	@Test
 	public void testEdit() throws Exception {
 		News vo = new News() ;

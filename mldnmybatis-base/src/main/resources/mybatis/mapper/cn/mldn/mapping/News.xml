@@ -2,7 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- 设置命名空间，可以与不同表的同类型操作进行区分，使用时以“空间名称.id”的方式调用 -->
-<mapper namespace="cn.mldn.mapping.NewsNS"> 
+<mapper namespace="cn.mldn.mapping.NewsNS">
+	<select id="getAllCount" resultType="Long" parameterType="map">
+		SELECT COUNT(*) FROM news WHERE ${column} LIKE #{keyWord} ;
+	</select>  
+	<select id="findSplit" resultType="News" parameterType="map">
+		SELECT nid,title,pubdate FROM news WHERE ${column} LIKE #{keyWord}  LIMIT #{start} , #{lineSize} ;
+	</select>
+	<select id="findAll" resultType="News">
+		SELECT nid,title,pubdate FROM news ;
+	</select>
+	<select id="findById" resultType="News" parameterType="long">
+		SELECT nid,title,pubdate FROM news WHERE nid=#{id} ;
+	</select>
 	<!-- 定义增加数据的操作配置，同时指定参数类型 --> 
 	<insert id="doCreate" parameterType="News" keyProperty="nid" useGeneratedKeys="true">
 		INSERT INTO news(title,pubdate) VALUES (#{title},#{pubdate})

@@ -10,3 +10,46 @@
 2018-06-05 17:23:49,132 DEBUG [cn.mldn.mapping.NewsNS.doRemove] - ==>  Preparing: DELETE FROM news WHERE nid=? 
 2018-06-05 17:23:49,164 DEBUG [cn.mldn.mapping.NewsNS.doRemove] - ==> Parameters: 9(Long)
 2018-06-05 17:23:49,165 DEBUG [cn.mldn.mapping.NewsNS.doRemove] - <==    Updates: 1
+2018-06-06 08:54:24,563 DEBUG [cn.mldn.mapping.NewsNS.findById] - ==>  Preparing: SELECT nid,title,pubdate FROM news WHERE nid=? ; 
+2018-06-06 08:54:57,522 DEBUG [cn.mldn.mapping.NewsNS.findById] - ==>  Preparing: SELECT nid,title,pubdate FROM news WHERE nid=? ; 
+2018-06-06 08:54:57,557 DEBUG [cn.mldn.mapping.NewsNS.findById] - ==> Parameters: 8(Long)
+2018-06-06 08:54:57,572 TRACE [cn.mldn.mapping.NewsNS.findById] - <==    Columns: nid, title, pubdate
+2018-06-06 08:54:57,577 TRACE [cn.mldn.mapping.NewsNS.findById] - <==        Row: 8, 今天是个好天气。, 2018-06-05 16:47:02.0
+2018-06-06 08:54:57,579 DEBUG [cn.mldn.mapping.NewsNS.findById] - <==      Total: 1
+2018-06-06 08:55:16,736 DEBUG [cn.mldn.mapping.NewsNS.findById] - ==>  Preparing: SELECT nid,title,pubdate FROM news WHERE nid=? ; 
+2018-06-06 08:55:16,771 DEBUG [cn.mldn.mapping.NewsNS.findById] - ==> Parameters: 8(Long)
+2018-06-06 08:55:16,785 TRACE [cn.mldn.mapping.NewsNS.findById] - <==    Columns: nid, title, pubdate
+2018-06-06 08:55:16,790 TRACE [cn.mldn.mapping.NewsNS.findById] - <==        Row: 8, 今天是个好天气。, 2018-06-05 16:47:02.0
+2018-06-06 08:55:16,792 DEBUG [cn.mldn.mapping.NewsNS.findById] - <==      Total: 1
+2018-06-06 08:57:16,423 DEBUG [cn.mldn.mapping.NewsNS.findAll] - ==>  Preparing: SELECT nid,title,pubdate FROM news ; 
+2018-06-06 08:57:16,462 DEBUG [cn.mldn.mapping.NewsNS.findAll] - ==> Parameters: 
+2018-06-06 08:57:16,476 TRACE [cn.mldn.mapping.NewsNS.findAll] - <==    Columns: nid, title, pubdate
+2018-06-06 08:57:16,481 TRACE [cn.mldn.mapping.NewsNS.findAll] - <==        Row: 4, 今天是个好天气。, 2018-06-05 16:34:03.0
+2018-06-06 08:57:16,483 TRACE [cn.mldn.mapping.NewsNS.findAll] - <==        Row: 5, 今天是个好天气。, 2018-06-05 16:34:16.0
+2018-06-06 08:57:16,483 TRACE [cn.mldn.mapping.NewsNS.findAll] - <==        Row: 6, 马上下课了，高兴吗？, 2018-06-05 17:23:33.0
+2018-06-06 08:57:16,484 TRACE [cn.mldn.mapping.NewsNS.findAll] - <==        Row: 7, 今天是个好天气。, 2018-06-05 16:36:41.0
+2018-06-06 08:57:16,484 TRACE [cn.mldn.mapping.NewsNS.findAll] - <==        Row: 8, 今天是个好天气。, 2018-06-05 16:47:02.0
+2018-06-06 08:57:16,484 TRACE [cn.mldn.mapping.NewsNS.findAll] - <==        Row: 10, 今天是个好天气。, 2018-06-05 16:53:42.0
+2018-06-06 08:57:16,485 TRACE [cn.mldn.mapping.NewsNS.findAll] - <==        Row: 11, 今天是个好天气。, 2018-06-05 17:10:06.0
+2018-06-06 08:57:16,486 TRACE [cn.mldn.mapping.NewsNS.findAll] - <==        Row: 12, 今天是个好天气。, 2018-06-05 17:10:48.0
+2018-06-06 08:57:16,486 TRACE [cn.mldn.mapping.NewsNS.findAll] - <==        Row: 13, 今天是个好天气。, 2018-06-05 17:13:03.0
+2018-06-06 08:57:16,487 TRACE [cn.mldn.mapping.NewsNS.findAll] - <==        Row: 14, 今天是个好天气。, 2018-06-05 17:13:56.0
+2018-06-06 08:57:16,487 TRACE [cn.mldn.mapping.NewsNS.findAll] - <==        Row: 15, 今天是个好天气。, 2018-06-05 17:19:24.0
+2018-06-06 08:57:16,487 DEBUG [cn.mldn.mapping.NewsNS.findAll] - <==      Total: 11
+2018-06-06 09:02:55,776 DEBUG [cn.mldn.mapping.NewsNS.findSplit] - ==>  Preparing: SELECT nid,title,pubdate FROM news WHERE title LIKE ? LIMIT ? , ? ; 
+2018-06-06 09:02:55,813 DEBUG [cn.mldn.mapping.NewsNS.findSplit] - ==> Parameters: %今天%(String), 0(Long), 5(Integer)
+2018-06-06 09:02:55,827 TRACE [cn.mldn.mapping.NewsNS.findSplit] - <==    Columns: nid, title, pubdate
+2018-06-06 09:02:55,833 TRACE [cn.mldn.mapping.NewsNS.findSplit] - <==        Row: 4, 今天是个好天气。, 2018-06-05 16:34:03.0
+2018-06-06 09:02:55,835 TRACE [cn.mldn.mapping.NewsNS.findSplit] - <==        Row: 5, 今天是个好天气。, 2018-06-05 16:34:16.0
+2018-06-06 09:02:55,835 TRACE [cn.mldn.mapping.NewsNS.findSplit] - <==        Row: 7, 今天是个好天气。, 2018-06-05 16:36:41.0
+2018-06-06 09:02:55,835 TRACE [cn.mldn.mapping.NewsNS.findSplit] - <==        Row: 8, 今天是个好天气。, 2018-06-05 16:47:02.0
+2018-06-06 09:02:55,836 TRACE [cn.mldn.mapping.NewsNS.findSplit] - <==        Row: 10, 今天是个好天气。, 2018-06-05 16:53:42.0
+2018-06-06 09:02:55,836 DEBUG [cn.mldn.mapping.NewsNS.findSplit] - <==      Total: 5
+2018-06-06 09:03:19,261 DEBUG [cn.mldn.mapping.NewsNS.findSplit] - ==>  Preparing: SELECT nid,title,pubdate FROM news WHERE ? LIKE ? LIMIT ? , ? ; 
+2018-06-06 09:03:19,294 DEBUG [cn.mldn.mapping.NewsNS.findSplit] - ==> Parameters: title(String), %今天%(String), 0(Long), 5(Integer)
+2018-06-06 09:03:19,307 DEBUG [cn.mldn.mapping.NewsNS.findSplit] - <==      Total: 0
+2018-06-06 09:05:27,448 DEBUG [cn.mldn.mapping.NewsNS.getAllCount] - ==>  Preparing: SELECT COUNT(*) FROM news WHERE title LIKE ? ; 
+2018-06-06 09:05:27,480 DEBUG [cn.mldn.mapping.NewsNS.getAllCount] - ==> Parameters: %今天%(String)
+2018-06-06 09:05:27,494 TRACE [cn.mldn.mapping.NewsNS.getAllCount] - <==    Columns: COUNT(*)
+2018-06-06 09:05:27,494 TRACE [cn.mldn.mapping.NewsNS.getAllCount] - <==        Row: 10
+2018-06-06 09:05:27,495 DEBUG [cn.mldn.mapping.NewsNS.getAllCount] - <==      Total: 1
