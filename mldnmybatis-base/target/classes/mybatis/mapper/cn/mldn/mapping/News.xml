@@ -8,7 +8,7 @@
 		SELECT COUNT(*) FROM news WHERE ${column} LIKE #{keyWord} ;
 	</select>  
 	<select id="findSplit" resultType="News" parameterType="map">
-		SELECT nid,title,pubdate FROM news 
+		<include refid="selectBase"/>
 		<where>
 			<if test="column != null and keyWord !=null and column != &quot;&quot; and keyWord != &quot;&quot;">
 				${column} LIKE #{keyWord}  
@@ -17,7 +17,31 @@
 		LIMIT #{start} , #{lineSize} ;
 	</select>
 	
-	<update id="doEdit" parameterType="News">
+	<sql id="selectBase">
+		SELECT nid,title,pubdate FROM news 
+	</sql>
+	
+	<select id="findAllByIds" resultType="News" parameterType="Long">
+		<include refid="selectBase"/>
+		<where>
+			nid IN 
+			<foreach collection="array" open="(" close=")" separator="," item="ele">
+				#{ele}
+			</foreach>
+		</where>
+	</select> 
+	
+	<delete id="doRemoveByIds" parameterType="Long">	<!-- 单个参数 -->
+		DELETE FROM news 
+		<where>
+			nid IN 
+			<foreach collection="array" open="(" close=")" separator="," item="ele">
+				#{ele}
+			</foreach>
+		</where> 
+	</delete>
+	
+ 	<update id="doEdit" parameterType="News">
 		UPDATE news
 		<set>
 			<if test="title != null and title != &quot;&quot;">

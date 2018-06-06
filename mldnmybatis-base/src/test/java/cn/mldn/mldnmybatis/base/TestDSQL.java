@@ -2,8 +2,10 @@ package cn.mldn.mldnmybatis.base;
 
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.junit.Test;
 
@@ -19,7 +21,32 @@ public class TestDSQL {
 		int len = MyBatisSessionFactory.getSession().update("cn.mldn.mapping.NewsNS.doEdit", updateVo);
 		MyBatisSessionFactory.getSession().commit(); 
 		MyBatisSessionFactory.close();
-	}    
+	}     
+	
+	@Test
+	public void testDeleteIds() throws Exception {
+		Set<Long> ids = new HashSet<Long>() ; // 传递的一般都是Set集合
+		ids.add(6L) ;
+		ids.add(7L) ;
+		ids.add(8L) ;
+		int len = MyBatisSessionFactory.getSession().delete(
+				"cn.mldn.mapping.NewsNS.doRemoveByIds",ids.toArray());
+		MyBatisSessionFactory.getSession().commit();
+		System.out.println("删除的数据行数：" + len);
+		MyBatisSessionFactory.close();
+	}  
+	
+	@Test
+	public void testSelectIds() throws Exception {
+		Set<Long> ids = new HashSet<Long>() ; // 传递的一般都是Set集合
+		ids.add(6L) ;
+		ids.add(7L) ;
+		ids.add(8L) ;
+		List<News> all = MyBatisSessionFactory.getSession().selectList(
+				"cn.mldn.mapping.NewsNS.findAllByIds",ids.toArray()); 
+		all.forEach(System.out::println); 
+		MyBatisSessionFactory.close();
+	}  
 	
 	@Test
 	public void testSelectSplit() throws Exception {
