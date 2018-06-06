@@ -9,7 +9,7 @@
 	<typeAliases>
 		<package name="cn.mldn.ssm.vo"/>
 	</typeAliases>
-	<mappers>
+<!-- 	<mappers>
 		<mapper resource="mybatis/mapper/cn/mldn/mapping/Emp.xml"/>
-	</mappers>
+	</mappers> -->
 </configuration> 
