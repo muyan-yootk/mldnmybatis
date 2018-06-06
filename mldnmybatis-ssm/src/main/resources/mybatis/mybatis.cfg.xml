@@ -7,9 +7,9 @@
 		<setting name="cacheEnabled" value="true"/>
 	</settings>
 	<typeAliases>
-		<package name="cn.mldn.vo"/>
+		<package name="cn.mldn.ssm.vo"/>
 	</typeAliases>
 	<mappers>
-		<mapper resource="mybatis/mapper/cn/mldn/mapping/News.xml"/>
+		<mapper resource="mybatis/mapper/cn/mldn/mapping/Emp.xml"/>
 	</mappers>
 </configuration> 

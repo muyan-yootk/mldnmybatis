@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 设置命名空间，可以与不同表的同类型操作进行区分，使用时以“空间名称.id”的方式调用 -->
+<mapper namespace="cn.mldn.mapping.EmpNS">
+	<sql id="selectBase">
+		SELECT empno,name,job,salary,photo FROM emp
+	</sql>
+	<select id="getAllCount" resultType="Long" parameterType="map">
+		SELECT COUNT(*) FROM emp
+		<where>
+			<if test="column != null and column != &quot;&quot; and keyWord != null and keyWord != &quot;&quot;">
+				${column} LIKE #{keyWord}
+			</if>
+		</where>
+	</select>
+	<select id="findSplit" resultType="Emp" parameterType="map">
+		<include refid="selectBase"/>
+		<where>
+			<if test="column != null and column != &quot;&quot; and keyWord != null and keyWord != &quot;&quot;">
+				${column} LIKE #{keyWord}
+			</if>
+		</where>
+		LIMIT #{start}, #{lineSize} ;
+	</select>
+	<select id="findAll" resultType="Emp">
+		<include refid="selectBase"/>
+	</select>	
+	<select id="findById" resultType="Emp" parameterType="long">
+		<include refid="selectBase"/>
+		where empno=#{empno} ;
+	</select>
+	<insert id="doCreate" parameterType="Emp">
+		INSERT INTO emp(empno,name,job,salary,photo) VALUES (#{empno},#{name},#{job},#{salary},#{photo}) ;
+	</insert>
+	<delete id="doRemove" parameterType="Long">
+		DELETE FROM emp 
+		<where>
+			empno IN 
+			<foreach collection="array" open="(" close=")" separator="," item="ele">
+				#{ele}
+			</foreach>
+		</where> 
+	</delete>
+	<update id="doEdit" parameterType="Emp">
+		UPDATE emp 
+		<set>
+			<if test="name != null">
+				name=#{name} ,
+			</if>
+			<if test="job != null">
+				job=#{job} ,
+			</if>
+			<if test="salary != null">
+				salary=#{salary},
+			</if>
+			<if test="photo != null">
+				photo=#{photo},
+			</if>
+		</set>
+		<where>
+			empno=#{empno} 
+		</where>
+	</update>
+</mapper> 

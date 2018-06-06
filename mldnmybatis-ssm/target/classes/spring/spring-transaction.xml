@@ -19,6 +19,7 @@
 			<tx:method name="remove*" propagation="REQUIRED"/>		
 			<tx:method name="list*" propagation="REQUIRED" read-only="true"/>		
 			<tx:method name="get*" propagation="REQUIRED" read-only="true"/>		
+			<tx:method name="pre*" propagation="REQUIRED" read-only="true"/>		
 		</tx:attributes>
 	</tx:advice>
 	<!-- 随后需要为项目配置有一个切面，而切面就需要通过AOP技术指派 -->
