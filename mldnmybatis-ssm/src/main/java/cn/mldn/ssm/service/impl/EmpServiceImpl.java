@@ -43,7 +43,7 @@ public class EmpServiceImpl extends AbstractService implements IEmpService {
 		Map<String,Object> result = new HashMap<String,Object>() ;
 		Map<String,Object> paramMap = super.paramConverterMap(currentPage, lineSize, column, keyWord) ;
 		result.put("allEmps", this.empDAO.findSplit(paramMap)) ;
-		result.put("empCount", this.empDAO.getAllCount(paramMap)) ;
+		result.put("allRecorders", this.empDAO.getAllCount(paramMap)) ;
 		return result; 
 	}
 

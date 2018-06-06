@@ -10,14 +10,14 @@ public class SplitPageUtil {
 	public SplitPageUtil() {
 		this.request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest() ;
 	}
-	public SplitPageUtil(String urlKey) {
-		this() ; 
-//		this.request.setAttribute("url", ResourceUtil.getPage(urlKey));
+	public SplitPageUtil(String url) {
+		this() ;  
+		System.out.println(url);
+		this.request.setAttribute("url", url);
 	} 
-	public SplitPageUtil(String columnData,String urlKey) {
-		this(urlKey) ;
+	public SplitPageUtil(String columnData,String url) {
+		this(url) ;
 		this.request.setAttribute("columnData", columnData);
-//		this.request.setAttribute("url", ResourceUtil.getPage(urlKey));
 	}
 	public long getCurrentPage() { 
 		long currentPage = 1 ; 		// 当前所在页

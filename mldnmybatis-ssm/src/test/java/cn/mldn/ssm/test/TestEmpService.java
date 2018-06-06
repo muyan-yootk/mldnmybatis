@@ -30,13 +30,15 @@ public class TestEmpService {
 	}
 	@Test
 	public void testAdd() {
+		for (int x = 0 ; x < 100 ; x ++) {
 		Emp vo = new Emp() ;
-		vo.setEmpno(rand.nextLong());
+		vo.setEmpno(7388L + x );
 		vo.setName("强子");
 		vo.setJob("某商场团购代表");
 		vo.setSalary(8000.0);
 		vo.setPhoto("nophoto.jpg");
 		System.out.println(this.empService.add(vo));
+		}
 	}
 	@Test
 	public void testEdit() {
