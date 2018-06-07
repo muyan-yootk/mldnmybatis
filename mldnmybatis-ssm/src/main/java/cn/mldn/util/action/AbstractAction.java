@@ -27,7 +27,7 @@ public abstract class AbstractAction {
 	 */
 	public void setUrlAndMsg(ModelAndView mav , String urlKey, String msgKey, String... params) {
 		mav.addObject("url", this.getMessage(urlKey)) ;
-		mav.addObject("msg", this.getMessage("msgKey", params)) ;
+		mav.addObject("msg", this.getMessage(msgKey, params)) ;
 	}
 	
 	/**

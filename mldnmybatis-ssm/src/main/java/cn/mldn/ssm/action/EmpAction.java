@@ -25,6 +25,17 @@ public class EmpAction extends AbstractAction {
 				this.empService.list(spu.getCurrentPage(), spu.getLineSize(), spu.getColumn(), spu.getKeyword()));
 		return mav ;
 	}
+	@RequestMapping("emp_edit")
+	public ModelAndView edit(Emp emp,MultipartFile pic) {
+		ModelAndView mav = new ModelAndView(super.getMessage("forward.page")) ;
+		FileUploadUtil.upload(pic, "/WEB-INF/upload/emp/", emp.getPhoto());
+		if (this.empService.edit(emp)) {	// 进行内容的保存
+			super.setUrlAndMsg(mav, "emp.list.action", "vo.edit.success", TITLE);
+		} else {
+			super.setUrlAndMsg(mav, "emp.list.action", "vo.edit.failure", TITLE);
+		}
+		return mav ; 
+	}
 	@RequestMapping("emp_add")
 	public ModelAndView add(Emp emp,MultipartFile pic) {
 		ModelAndView mav = new ModelAndView(super.getMessage("forward.page")) ;
@@ -40,5 +51,11 @@ public class EmpAction extends AbstractAction {
 	@RequestMapping("emp_add_pre")
 	public String addPre() {
 		return super.getMessage("emp.add.page") ; 
+	}
+	@RequestMapping("emp_edit_pre")
+	public ModelAndView editPre(long empno) {
+		ModelAndView mav = new ModelAndView(super.getMessage("emp.edit.page")) ;
+		mav.addObject("emp", this.empService.preEdit(empno)) ;
+		return mav ; 
 	}
 }
