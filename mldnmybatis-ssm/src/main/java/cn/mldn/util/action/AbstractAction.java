@@ -1,7 +1,11 @@
 package cn.mldn.util.action;
 
 import java.text.SimpleDateFormat;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +22,34 @@ import org.springframework.web.servlet.ModelAndView;
 public abstract class AbstractAction {
 	@Autowired
 	private MessageSource messageSource ;
+	/**
+	 * 实现请求的数据与Set集合的转换，里面的类型为Long
+	 * @param paramName 参数名称
+	 * @return 不管是否有数据都会返回有Set集合
+	 */
+	public Set<Long> splitToSetByLong(String value) {
+		Set<Long> all = new HashSet<Long>() ;
+		String result [] = value.split(",") ;
+		for (int x = 0 ; x < result.length ; x ++) {
+			all.add(Long.parseLong(result[x])) ;
+		}
+		return all ; 
+	}
+	/**
+	 * 实现请求的数据与Set集合的转换，里面的类型为Long
+	 * @param paramName 参数名称
+	 * @return 不管是否有数据都会返回有Map集合,key是id，value是图片
+	 */
+	public Map<Long,String> splitToSetByCompiste(String value) {
+		Map<Long, String> all = new HashMap<Long, String>();
+		String result [] = value.split(",") ;
+		for (int x = 0 ; x < result.length ; x ++) {
+			String temp [] = result[x].split(":") ;
+			all.put(Long.parseLong(temp[0]),temp[1]) ;
+		} 
+		return all ; 
+	}
+	
 	/**
 	 * 进行跳转信息的设置操作方法
 	 * @param mav 要操作的ModelAndView对象

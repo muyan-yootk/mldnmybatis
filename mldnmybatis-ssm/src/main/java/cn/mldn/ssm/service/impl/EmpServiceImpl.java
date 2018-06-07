@@ -35,7 +35,7 @@ public class EmpServiceImpl extends AbstractService implements IEmpService {
 		if (ids == null || ids.size() == 0) {
 			return false ;
 		}
-		return this.empDAO.doRemove(ids); 
+		return this.empDAO.doRemove(ids.toArray()); 
 	}
 
 	@Override

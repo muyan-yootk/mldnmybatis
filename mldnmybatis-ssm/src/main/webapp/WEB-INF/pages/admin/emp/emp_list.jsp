@@ -38,7 +38,7 @@
 					<tbody>
 					<c:forEach items="${allEmps}" var="emp">
 						<tr>
-							<td><input type="checkbox" id="eid" value="${emp.empno}"></td>
+							<td><input type="checkbox" id="empno" value="${emp.empno}:${emp.photo}"></td>
 							<td>${emp.empno}</td>
 							<td><img src="upload/emp/${emp.photo}" style="width:50px;"></td>
 							<td>${emp.name}</td>

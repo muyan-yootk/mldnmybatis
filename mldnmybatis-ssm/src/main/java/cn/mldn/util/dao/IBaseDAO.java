@@ -1,8 +1,7 @@
 package cn.mldn.util.dao;
 
 import java.util.List;
-import java.util.Map;
-import java.util.Set; 
+import java.util.Map; 
 
 /**
  * 数据层操作的标准方法定义：增加、修改、删除、查询全部、根据ID查询、分页查询、模糊查询、数据统计
@@ -28,7 +27,7 @@ public interface IBaseDAO<K, V> {
 	 * @param ids 要删除的数据编号
 	 * @return 删除成功返回true，否则返回false
 	 */
-	public boolean doRemove(Set<K> ids) ;
+	public boolean doRemove(Object[] ids) ;
 	/**
 	 * 根据主键实现指定数据的查询，查询的数据以VO对象的形式保存
 	 * @param id 要查询的主键数据
