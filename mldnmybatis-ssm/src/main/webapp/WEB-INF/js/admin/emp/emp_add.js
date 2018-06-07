@@ -1,33 +1,33 @@
 window.onload = function() {
-	document.getElementById("ename").addEventListener("blur",function(){
-		validateEname() ;
+	document.getElementById("name").addEventListener("blur",function(){
+		validateName() ;
 	},false) ;
-	document.getElementById("jid").addEventListener("blur",function(){
-		validateJid() ;
+	document.getElementById("job").addEventListener("blur",function(){
+		validateJob() ;
 	},false) ;
-	document.getElementById("did").addEventListener("blur",function(){
-		validateDid() ;
+	document.getElementById("empno").addEventListener("blur",function(){
+		validateEmpno() ;
 	},false) ;
-	document.getElementById("sal").addEventListener("blur",function(){
-		validateSal() ;
+	document.getElementById("salary").addEventListener("blur",function(){
+		validateSalary() ;
 	},false) ;
 	document.getElementById("myForm").addEventListener("submit",
 		function(event){
-		if (!(validateEname() & validateJid() & 
-				validateDid() & validateSal())) {	// 返回false表示正确
+		if (!(validateName() & validateJob() & 
+				validateEmpno() & validateSalary())) {	// 返回false表示正确
 			event.preventDefault() ;	// 阻止表单提交
 		}
 	},false) ;
 }
-function validateJid() {
-	return validateEmpty("jid") ;
+function validateEmpno() {
+	return validateRegex("empno",/^\d+$/) ;
 }
-function validateDid() {
-	return validateEmpty("did") ;
+function validateJob() {
+	return validateEmpty("job") ;
 }
-function validateEname() {
-	return validateEmpty("ename") ;
+function validateName() {
+	return validateEmpty("name") ;
 }
-function validateSal() {
-	return validateRegex("sal",/^\d+(\.\d{1,2})?$/) ;
+function validateSalary() {
+	return validateRegex("salary",/^\d+(\.\d{1,2})?$/) ;
 }

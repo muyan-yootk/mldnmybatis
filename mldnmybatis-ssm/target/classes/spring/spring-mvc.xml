@@ -38,6 +38,9 @@
 				<prop key="org.springframework.web.multipart.MaxUploadSizeExceededException">
 					plugins/errors
 				</prop>
+				<prop key="org.springframework.web.util.NestedServletException">
+					plugins/errors
+				</prop>
 			</props>		
 		</property>	
 	</bean>
