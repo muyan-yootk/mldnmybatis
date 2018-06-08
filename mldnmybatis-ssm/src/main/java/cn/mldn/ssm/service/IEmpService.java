@@ -7,7 +7,9 @@ import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.Caching;
 
+import cn.mldn.ssm.service.annotation.EmpGetCache;
 import cn.mldn.ssm.vo.Emp;
 
 @CacheConfig(cacheNames = "emp")
@@ -17,12 +19,14 @@ public interface IEmpService {
 	@CacheEvict(key="#ids[0]")
 	public boolean delete(Set<Long> ids) ; 
 	
-	@CachePut(key = "#vo.empno", unless = "#result == null")
+	@Caching(put = { 
+			@CachePut(key = "#vo.empno", unless = "#result == null"),
+			@CachePut(key = "#vo.name", unless = "#result == null"), })
 	public Emp edit2(Emp vo);
 	
 	public boolean edit(Emp vo);
-
-	@Cacheable(key = "#eid", sync = true , condition="#eid<8000" , unless="#result == null")
+	
+	@EmpGetCache
 	public Emp getEmp(long eid, String ena);
 	
 	@Cacheable(cacheNames = "emp")
