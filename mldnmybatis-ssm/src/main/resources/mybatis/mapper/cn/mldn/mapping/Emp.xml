@@ -26,6 +26,11 @@
 	<select id="findAll" resultType="Emp">
 		<include refid="selectBase"/>
 	</select>	
+	<select id="findByIdAndName" resultType="Emp" parameterType="map">
+		<include refid="selectBase"/>
+		where empno=#{empno} AND name=#{name} ;
+	</select>
+	
 	<select id="findById" resultType="Emp" parameterType="long">
 		<include refid="selectBase"/>
 		where empno=#{empno} ;

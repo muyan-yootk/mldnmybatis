@@ -15,6 +15,15 @@ import cn.mldn.util.service.abs.AbstractService;
 public class EmpServiceImpl extends AbstractService implements IEmpService {
 	@Autowired
 	private IEmpDAO empDAO ;
+	
+	@Override
+	public Emp getEmp(long eid, String ena) {
+		Map<String,Object> map = new HashMap<String,Object>() ;
+		map.put("empno", eid) ;
+		map.put("name", ena) ;
+		return this.empDAO.findByIdAndName(map);
+	} 
+	
 	@Override
 	public boolean add(Emp vo) {
 		return this.empDAO.doCreate(vo);
