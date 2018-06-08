@@ -30,7 +30,7 @@ public class TestEmpService {
 	}
 	@Test
 	public void testAdd() {
-		for (int x = 0 ; x < 100 ; x ++) {
+		for (int x = 0 ; x < 10 ; x ++) {
 		Emp vo = new Emp() ;
 		vo.setEmpno(7388L + x );
 		vo.setName("强子");

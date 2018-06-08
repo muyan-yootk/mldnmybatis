@@ -1,5 +1,8 @@
 package cn.mldn.ssm.test;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +17,18 @@ import cn.mldn.ssm.vo.Emp;
 public class TestEmpCache {
 	@Autowired
 	private IEmpService empService ;
+	
+	@Test
+	public void testEmpDelete() {
+		long eid = 7389 ;
+		Emp voA = this.empService.preEdit(eid) ;	// 数据查询得到缓存
+		System.out.println("*** 1、【数据查询】" + voA);
+		Set<Long> all = new HashSet<Long>() ;
+		all.add(eid) ;
+		System.out.println("*** 2、【数据更新】" + this.empService.delete(all));
+		Emp voB = this.empService.preEdit(eid) ;
+		System.out.println("*** 3、【数据查询】" + voB);
+	}   
 	
 	@Test
 	public void testEmpUpdate() {
