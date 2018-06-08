@@ -14,21 +14,16 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">  
 	<cache:annotation-driven cache-manager="cacheManager"/>
-	<bean id="cacheManagerFactoryBean" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
-		<property name="configLocation" value="classpath:ehcache/ehcache.xml"/>
-	</bean>
-	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
-		<property name="cacheManager" ref="cacheManagerFactoryBean"/>
-	</bean>
 	
-	
-	<!-- <bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
+	<bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
 		<property name="caches">
-			<set>
-				<bean id="emp" 
-					class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"/>
+			<set>	
+				<bean class="cn.mldn.util.cache.RedisCache">
+					<property name="name" value="emp"/>
+					<property name="redisTemplate" ref="redisTemplate"/>
+				</bean>
 			</set>
-		</property>
-	</bean> -->
+		</property> 
+	</bean>
  
 </beans>
