@@ -30,6 +30,14 @@ public class EmpServiceImpl extends AbstractService implements IEmpService {
 	}
 
 	@Override
+	public Emp edit2(Emp vo) { 
+		if (this.empDAO.doEdit(vo)) {
+			return vo ;
+		}
+		return null ;
+	}
+	
+	@Override
 	public boolean edit(Emp vo) {
 		return this.empDAO.doEdit(vo);
 	}

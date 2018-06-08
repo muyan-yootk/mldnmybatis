@@ -1,8 +1,5 @@
 package cn.mldn.ssm.test;
 
-import java.util.Map;
-import java.util.Random;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +14,21 @@ import cn.mldn.ssm.vo.Emp;
 public class TestEmpCache {
 	@Autowired
 	private IEmpService empService ;
+	
+	@Test
+	public void testEmpUpdate() {
+		Emp voA = this.empService.preEdit(7369L) ;	// 数据查询得到缓存
+		System.out.println("*** 1、【数据查询】" + voA);
+		Emp newEmp = new Emp() ;
+		newEmp.setEmpno(7369L);
+		newEmp.setName("中强");
+		newEmp.setJob("大强之悲哀");
+		newEmp.setSalary(9000.00);
+		System.out.println("*** 2、【数据更新】" + this.empService.edit2(newEmp));
+		Emp voB = this.empService.preEdit(7369L) ;
+		System.out.println("*** 3、【数据查询】" + voB);
+	}  
+	
 	@Test
 	public void testPreEdit() {
 		Emp voA = this.empService.preEdit(7369L) ;
