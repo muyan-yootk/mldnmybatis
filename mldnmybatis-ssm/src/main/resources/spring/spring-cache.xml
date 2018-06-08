@@ -6,15 +6,21 @@
 	xmlns:task="http://www.springframework.org/schema/task"
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:cache="http://www.springframework.org/schema/cache"
 	xsi:schemaLocation="http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.3.xsd
+		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache-4.3.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">  
-	<context:component-scan base-package="cn.mldn.ssm.service,cn.mldn.ssm.dao"/>
-	<context:property-placeholder location="classpath:config/*.properties"/>
-	<import resource="classpath:spring/spring-cache.xml"/>
-	<import resource="classpath:spring/spring-datasource.xml"/>
-	<import resource="classpath:spring/spring-mybatis.xml"/>
-	<import resource="classpath:spring/spring-transaction.xml"/>
+	<cache:annotation-driven cache-manager="cacheManager"/>
+	<bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
+		<property name="caches">
+			<set>
+				<bean id="emp" 
+					class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"/>
+			</set>
+		</property>
+	</bean>
+ 
 </beans>

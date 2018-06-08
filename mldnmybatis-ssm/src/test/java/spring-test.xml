@@ -13,6 +13,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">  
 	<context:component-scan base-package="cn.mldn.ssm.service,cn.mldn.ssm.dao"/>
 	<context:property-placeholder location="classpath:config/*.properties"/>
+	<import resource="classpath:spring/spring-cache.xml"/>
 	<import resource="classpath:spring/spring-datasource.xml"/>
 	<import resource="classpath:spring/spring-mybatis.xml"/>
 	<import resource="classpath:spring/spring-transaction.xml"/>
